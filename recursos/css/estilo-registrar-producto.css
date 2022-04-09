@@ -1,0 +1,66 @@
+*
+{
+    background: fixed;
+    color: #1a2537;
+}
+
+.container
+{
+    margin-top: 5%;
+    padding: 20px;
+}
+
+.h1-contenedor
+{
+    margin: 28px;
+    margin-bottom: 50px;
+}
+
+.h1-contenedor
+{
+    color: #1a2537;
+    width: 450px;
+    padding: 15px;
+}
+
+.label-producto
+{
+    padding-right: 100px;
+    width: 15px;
+}
+
+.subtitulos
+{
+    margin-right: auto;
+
+}
+
+.subtitulos-marc
+{
+    margin-bottom: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+.subtitulos-prov
+{
+    margin-bottom: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#btn-registrar
+{
+    margin:10px;
+    margin-bottom: 15px;
+}
+
+#btn-registrar:hover
+{
+    color:aqua;
+}
+
+
+
+

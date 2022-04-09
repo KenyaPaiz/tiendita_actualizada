@@ -1,0 +1,100 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url(../img/Frutas.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+   
+    
+}
+
+
+.contenedor
+{
+    margin-top: 10%;
+        
+}
+
+h1{
+    text-align: center;
+    color: #1a2537;
+    font-size: 40px;
+}
+
+.imagen
+{
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-left: 45%;
+
+}
+
+.formulario
+{
+    position: absolute;
+    background: #fff;
+    margin-top: 4%;
+    padding: 3px;
+    width: 650px;
+    border-radius: 5px;
+    margin:0 auto;
+    top: calc(50% - 250px);
+    right: calc(50% - 325px);
+    padding-bottom: 20px;
+    
+}
+
+input[type="submit"]
+
+{
+    font-size: 20px;
+    width: 70%;
+    padding: 10px;
+    border: 0px;
+
+}
+
+.input-contenedor
+{
+    margin-bottom: 15px;
+    border: 1px;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 150px;
+    padding-right: 40px;
+    
+}
+
+
+
+
+.button
+{
+    border:none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background-color: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover
+{
+    background: cadetblue;
+}
+
+p{
+    text-align: center;
+}
+

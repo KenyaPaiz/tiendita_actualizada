@@ -1,0 +1,50 @@
+.encabezado
+{
+    background: #1a2537;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.div-nav
+{
+    padding: 0px;
+    width: 16.66%;
+    text-align: center;
+}
+
+label
+{
+    width: 15.3%;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+nav a
+{
+    color: white;
+}
+
+.nav
+{
+    padding: 15px;
+    margin: 0px;
+}
+
+.nav:hover
+{
+    background: white fixed;
+    color:black;
+}

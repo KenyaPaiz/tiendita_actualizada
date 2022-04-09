@@ -1,0 +1,30 @@
+body{
+    background-color: white;
+}
+*
+{
+    background-color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.formulario label{
+    width: 100px;
+}  
+
+.formulario div{
+    margin: 10px 0;
+    padding: 10px;
+}
+
+input[type="submit"]{
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+    margin-top: 20px;
+}

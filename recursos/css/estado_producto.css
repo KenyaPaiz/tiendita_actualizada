@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+a{
+    text-decoration: none;
+    color: black;
+}
+.container {
+    position: absolute;
+    width: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 300px);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    margin: 0 auto;
+    padding: 10px;
+    height: 300px;
+    width: 400px;
+}
+
+.boton {
+    padding: 11px;
+    background-color: steelblue;
+    border-style: none;
+}
+
+.formulario a{
+    padding: 10px;
+    background-color: steelblue;
+}
+
+.boton, .formulario a{
+    font-family: 'Arial';
+    font-size: 14px;
+}

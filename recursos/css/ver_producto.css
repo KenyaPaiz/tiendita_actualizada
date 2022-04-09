@@ -1,0 +1,34 @@
+.th
+{
+    color: #1a2537;
+}
+
+#tabla
+{
+    padding: 85px;
+}
+
+.tabla-contenedor
+{
+    margin: 40px;
+}
+#btn-act
+{
+    padding: 5px;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.busqueda{
+    width: 70%;
+    
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+}

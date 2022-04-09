@@ -1,0 +1,21 @@
+body
+{
+    color: #1a2537;
+}
+
+.contenedor
+{
+    margin:40px;
+}
+
+.h1-contenedor
+{
+    margin: 10px;
+    color: #1a2537;
+}
+
+.informacion
+{
+    margin-bottom: 15px;
+    padding: 25px;
+}

@@ -1,0 +1,53 @@
+*
+{
+    color: #1a2537;
+}
+
+.container
+{
+    margin: 6%;
+}
+
+h1
+{
+    color: #1a2537;
+}
+
+.h1-contenedor
+{
+    margin: 28px;
+}
+
+.label-categoria
+{
+    padding-right: 80px;
+    width: 15px;
+}
+
+.input-categoria
+{
+    margin-bottom: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#btn-registrar
+{
+    margin:10px;
+    margin-bottom: 15px;
+}
+
+#btn-registrar:hover
+{
+    color:aqua;
+}
+
+.btn-actualizar
+{
+    width: 80px;
+}
+
+td
+{
+    width: 40px;
+}
