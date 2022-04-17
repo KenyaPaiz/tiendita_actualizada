@@ -99,6 +99,7 @@ input[type="password"]
     padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .btn:hover
@@ -125,7 +126,10 @@ p{
 .parrafos{
     line-height: 10px;
 }
-
+.registrar{
+    text-decoration: none;
+    text-align: center;
+}
 .error {
     background-color: red;
     color: #fff;
