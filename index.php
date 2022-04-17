@@ -38,13 +38,16 @@
                     </div>
                     
                     <input type="submit" name="ingresar" value="Ingresar" class="btn">
+                    <a href="vistas/registrar_admin.php" class="registrar btn">
+                        Registrar
+                    </a>
                         <!-- <div class="parrafos">
                              <p>Al registrarte, aceptas nuestras Políticas y Condiciones.</p>
                              <p>¿Aún no tienes cuenta? <a class="link" href="registrarse.php">Regístrate</a></p>
                             </div> -->
                         <?php $admin->accederAdministrador(); ?>
                      
-                    </form>
+                </form>
             </div>
     </main>
 
