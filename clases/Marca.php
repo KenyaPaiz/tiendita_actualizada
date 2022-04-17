@@ -5,7 +5,6 @@ class Marca extends Conexion{
     public $id;
     public $nombre;
 
-    
 
     public function registrar(){
         $this->conectar();
