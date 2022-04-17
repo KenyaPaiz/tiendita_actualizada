@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,40 +8,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../recursos/css/estilo-nav.css">
     <link rel="stylesheet" href="../recursos/css/estilo-registrar-proveedor.css">
-   
     <title>Ver Proveedor</title>
 </head>
 <body>
     <header class="encabezado">
         <nav>
+            <div class="div-nav">
+                <a class="nav" href="../menu.php">Menu</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="../menu.php">Menu</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="categoria.php">Categoria</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="categoria.php">Categoria</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="marca.php">Marca</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="marca.php">Marca</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="ver_producto.php">Producto</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="ver_producto.php">Producto</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="proveedor.php">Proveedor</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="proveedor.php">Proveedor</a>
-                </div>
-
-                <div class="div-nav">
-                    <a class="nav" href="registrar_producto.php">Registrar producto</a>
-                </div>
-                <div class="div-nav">
-                    <a class="nav" href="../index.php">Cerra Sesion</a>
-                </div>
-            
+            <div class="div-nav">
+                <a class="nav" href="registrar_producto.php">Registrar producto</a>
+            </div>
+            <div class="div-nav">
+                <a class="nav" href="../index.php">Cerra Sesion</a>
+            </div>
         </nav>
     </header>
     <center>
@@ -49,6 +46,8 @@
             <?php
                 require('../clases/proveedor.php');
                 $proveedor = new Proveedor();
+                $datos = $proveedor->consultar();
+                $cont = 1;
             ?>
             <h1 class="h1-contenedor">Registro de Proveedores</h1>
             <form class="form"action=""method="POST">
@@ -72,7 +71,27 @@
                     <th>Accion</th>
                 </thead>
                 <tbody>
-                    <?php $proveedor->consultar(); ?>
+                    <?php foreach($datos as $dato){ ?>
+                        <tr>
+                            <td><?php echo $cont; ?></td>
+                            <td><?php echo $dato['nombre']; ?></td>
+                            <td><?php echo $dato['direccion']; ?></td>
+                            <td><?php echo $dato['telefono']; ?></td>
+                            <td>
+                                <form action="act_proveedor.php" method="post">
+                                    <button type="submit" class="btn btn-outline-success" name="idproveedor" value="<?php echo $dato['id']; ?>">Actualizar</button>
+                                </form>
+                            </td>
+                            <td class="td-cat">
+                                <form method="post">
+                                    <button type="submit" class="btn btn-outline-danger" name="delete_id" value="<?php echo $dato['id']; ?>">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php
+                       $cont++; 
+                       } 
+                    ?>
                 </tbody>
             </table>
             <?php $proveedor->eliminar(); ?>

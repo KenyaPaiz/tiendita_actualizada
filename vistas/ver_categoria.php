@@ -47,12 +47,16 @@
         <div class="container">
             <?php 
                 require('../clases/Categoria.php');
-                $categoria = new Categoria(); 
+                $categoria = new Categoria();
+                $datos = $categoria->obtenerId(); 
             ?>
             <h1>Actualizar Categoria</h1>
             <form method="POST">
-                <?php $categoria->obtenerId(); ?>
-                <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Categoria">
+                <?php foreach($datos as $dato){ ?>
+                    <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
+                    <input type="text" name="nombre_categoria" value="<?php echo $dato['nombre']; ?>">
+                    <input type="submit" class="btn btn-dark" name="actualizar" value="Actualizar Categoria">
+                <?php } ?>
             </form>
             <?php $categoria->actualizar(); ?>
         </div>

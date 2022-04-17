@@ -5,7 +5,6 @@ class Marca extends Conexion{
     public $id;
     public $nombre;
 
-
     public function registrar(){
         $this->conectar();
         if(isset($_POST['marca'])){
@@ -24,36 +23,18 @@ class Marca extends Conexion{
         $this->conectar();
         $query = "SELECT * FROM marca";
         $resultado = mysqli_query($this->con, $query);
-        $cont = 1;
-        while($imprimir = mysqli_fetch_array($resultado)){
-            $tabla = "<tr>";
-                $tabla .= "<td>$cont</td>";
-                $tabla .= "<td>".$imprimir['nombre']."</td>";
-                $tabla .= "<form action='ver_marca.php' method='POST'>";
-                    $tabla .= "<td><button type='submit' class='btn btn-outline-success' name='idmarca' value='".$imprimir['id']."'>Actualizar</button></td>";
-                $tabla .= "</form>";
-                $tabla .= "<form  method='POST'>";
-                    $tabla .= "<td><button type='submit' class='btn btn-outline-danger' name='delete_id' value='".$imprimir['id']."'>Eliminar</button></td>";
-                $tabla .= "</form>";
-            $tabla .= "</tr>";
-            echo $tabla;
-            $cont++;
-        } 
+        
+        return $resultado;
     }
     
     public function obtenerId(){
-        //esta es la para conexion de base de datos
         $this->conectar();
         if(isset($_POST['idmarca'])){
             $this->id = $_POST['idmarca'];
             $query = "SELECT * FROM marca WHERE id=$this->id";
             $resultado = mysqli_query($this->con, $query);
-            while($imprimir = mysqli_fetch_array($resultado)){
-                $form = "<label>Nombre: </label>";
-                $form .= "<input type='hidden' name='id' value='".$imprimir['id']."'>";
-                $form .= "<input type='text' name='nombre_marca' value='".$imprimir['nombre']."'>";
-                echo $form;
-            }
+            
+            return $resultado;
         }
     }
 
@@ -81,9 +62,6 @@ class Marca extends Conexion{
             $this->id = $_POST['delete_id'];
             $query= "DELETE FROM marca WHERE id=$this->id";
             $resultado = mysqli_query($this->con, $query);
-            // if(!empty($resultado)){
-            //     header("location:marca.php");
-            // }
             if(!empty($resultado)){
                 echo "";
             }

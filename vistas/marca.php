@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,6 +49,8 @@
         <?php
             require('../clases/Marca.php');
             $marca = new Marca();
+            $datos = $marca->consultar();
+            $cont = 1;
         ?>
         <h1>Registro de Marcas</h1>
         <form action="" method="POST">
@@ -63,10 +65,28 @@
             <thead>
                 <th >#</th>
                 <th >Nombre</th>
-                <th >Accion</th>
+                <th colspan="2">Accion</th>
             </thead>
             <tbody>
-                <?php $marca->consultar(); ?>
+                <?php foreach($datos as $dato) { ?>
+                <tr>
+                    <td><?php echo $cont; ?></td>
+                    <td><?php echo $dato['nombre']; ?></td>
+                    <td>
+                        <form action="ver_marca.php" method="post">
+                            <button type="submit" class="btn btn-outline-success" name="idmarca" value="<?php echo $dato['id']; ?>">Actualizar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post">
+                            <button type="submit" class="btn btn-outline-danger" name="delete_id" value="<?php echo $dato['id']; ?>">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php
+                    $cont++; 
+                    } 
+                ?>
             </tbody>
         </table>
         <?php $marca->eliminar(); ?>

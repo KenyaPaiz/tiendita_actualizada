@@ -47,12 +47,16 @@
         <div class="container">
             <?php 
                 require('../clases/Marca.php');
-                $marca = new Marca(); 
+                $marca = new Marca();
+                $datos = $marca->obtenerId(); 
             ?>
             <h1>Actualizar Marca</h1>
             <form method="POST">
-                <?php $marca->obtenerId(); ?>
-                <input type="submit" class="btn btn-dark" name="actualizar" value="Actualizar Marca">
+                <?php foreach($datos as $dato){ ?>
+                    <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
+                    <input type="text" name="nombre_marca" value="<?php echo $dato['nombre']; ?>">
+                    <input type="submit" class="btn btn-dark" name="actualizar" value="Actualizar Marca">
+                <?php } ?>
             </form>
             <?php $marca->actualizar(); ?>
         </div>

@@ -28,24 +28,8 @@ class Proveedor extends Conexion{
         $this->conectar();
         $query = "SELECT * FROM proveedor";
         $resultado = mysqli_query($this->con, $query);
-        $cont = 1;
-        while($imprimir = mysqli_fetch_array($resultado)){
-            $tabla = "<tr>";
-                $tabla .= "<td>$cont</td>";
-                $tabla .= "<td>".$imprimir['nombre']."</td>";
-                $tabla .= "<td>".$imprimir['direccion']."</td>";
-                $tabla .= "<td>".$imprimir['telefono']."</td>";
-                $tabla .= "<form action='act_proveedor.php' method='POST'>";
-                $tabla .= "<td><button type='submit' id='btn-act' class='btn btn-dark' name='idproveedor' value='".$imprimir['id']."'>Actualizar</button></td>";
-                $tabla .= "</form>";
-                $tabla .= "<form method='POST'>";
-                $tabla .= "<td class='td-cat'><button type='submit' class='btn btn-outline-danger' name='delete_id' value='".$imprimir['id']."'>Eliminar</button></td>";
-                $tabla .= "</form>";
-            $tabla .= "</tr>";
-            echo $tabla;
-            $cont++;
-        } 
-    
+         
+        return $resultado;
     }
 
     public function obtenerId(){
@@ -55,14 +39,8 @@ class Proveedor extends Conexion{
             $this->id = $_POST['idproveedor'];
             $query = "SELECT * FROM proveedor WHERE id=$this->id";
             $resultado = mysqli_query($this->con, $query);
-            while($imprimir = mysqli_fetch_array($resultado)){
-                $form = "<label>Nombre: </label>";
-                $form .= "<input type='hidden' name='id' value='".$imprimir['id']."'>";
-                $form .= "<input type='text' name='nombre' value='".$imprimir['nombre']."'>";
-                $form .= "<input type='text' name='direccion' value='".$imprimir['direccion']."'>";
-                $form .= "<input type='text' name='telefono' value='".$imprimir['telefono']."'>";
-                echo $form;
-            }
+            
+            return $resultado;
         }
     }
 
@@ -93,7 +71,6 @@ class Proveedor extends Conexion{
             $query= "DELETE FROM proveedor WHERE id=$this->id";
             $resultado = mysqli_query($this->con, $query);
             if(!empty($resultado)){
-                // header("location:proveedor.php");
                 echo "";
             }
         }

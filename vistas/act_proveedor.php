@@ -13,53 +13,60 @@
 <body>
     <header class="encabezado">
         <nav>
+            <div class="div-nav">
+                <a class="nav" href="../menu.php">Menu</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="../menu.php">Menu</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="categoria.php">Categoria</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="categoria.php">Categoria</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="marca.php">Marca</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="marca.php">Marca</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="ver_producto.php">Producto</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="ver_producto.php">Producto</a>
-                </div>
+            <div class="div-nav">
+                <a class="nav" href="proveedor.php">Proveedor</a>
+            </div>
 
-                <div class="div-nav">
-                    <a class="nav" href="proveedor.php">Proveedor</a>
-                </div>
-
-                <div class="div-nav">
-                    <a class="nav" href="registrar_producto.php">Registrar producto</a>
-                </div>
-                <div class="div-nav">
-                    <a class="nav" href="../index.php">Cerra Sesion</a>
-                </div>
-            
+            <div class="div-nav">
+                <a class="nav" href="registrar_producto.php">Registrar producto</a>
+            </div>
+            <div class="div-nav">
+                <a class="nav" href="../index.php">Cerra Sesion</a>
+            </div>
         </nav>
     </header>
     <center>
         <main class="contenedor">
             <?php 
                 require('../clases/proveedor.php');
-                $proveedor = new Proveedor(); 
+                $proveedor = new Proveedor();
+                $datos = $proveedor->obtenerId(); 
             ?>
             <div class="h1-contenedor">
                 <h1>Actualizar Proveedor</h1>
             </div>
-                <form method="POST">
-                    <div class="informacion">
-                        <?php $proveedor->obtenerId(); ?>
-                    </div>
-                    <div class="input-contenedor">
-                        <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Proveedor" id="button">
-                    </div>
-                </form>
+            <form method="POST">
+                <div class="informacion">
+                    <?php foreach($datos as $dato){ ?>
+                        <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
+                        <label><b>Nombre:</b></label>
+                        <input type="text" name="nombre" value="<?php echo $dato['nombre']; ?>"><br>
+                        <label><b>Direccion:</b></label>
+                        <input type="text" name="direccion" value="<?php echo $dato['direccion']; ?>"><br>
+                        <label><b>Telefono:</b></label>
+                        <input type="text" name="telefono" value="<?php echo $dato['telefono']; ?>"><br>
+                </div>
+                <div class="input-contenedor">
+                    <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Proveedor" id="button">
+                    <?php } ?>
+                </div>
+            </form>
         </main>
         <?php $proveedor->actualizar(); ?>
     </center>

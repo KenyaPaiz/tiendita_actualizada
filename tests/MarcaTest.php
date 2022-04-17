@@ -6,10 +6,12 @@ require('clases/Marca.php');
 class MarcaTest extends TestCase{
     /** @test */
     public function registrarTest(){
-        $marcaTest = new Marca;
-        $marcaTest->nombre = 'prueba3';
-        $marcaTest->registrar();
-        $this->assertEquals('prueba3', $marcaTest->nombre);
+
+        $marca = new Marca;
+        $marca->conectar();
+        $cadena = 'otra_prueba';
+        $marca->nombre = 'otra_prueba';
+        $this->assertEquals($cadena, $marca->registrar());
     }
 }
 

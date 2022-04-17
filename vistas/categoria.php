@@ -48,6 +48,8 @@
             <?php
                 require('../clases/Categoria.php');
                 $categoria = new Categoria();
+                $datos = $categoria->consultar();
+                $cont = 1;
             ?>
             <div class="h1-contenedor">
                 <h1>Registro de Categorias</h1>
@@ -59,14 +61,33 @@
             </form>
             <?php $categoria->registrar(); ?>
             <br>
+            
             <table class="table table-sm">
                 <thead>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Accion</th>
+                    <th >#</th>
+                    <th >Nombre</th>
+                    <th colspan="2">Accion</th>
                 </thead>
                 <tbody>
-                    <?php $categoria->consultar(); ?>
+                    <?php foreach($datos as $dato) { ?>
+                    <tr>
+                        <td><?php echo $cont; ?></td>
+                        <td><?php echo $dato['nombre']; ?></td>
+                        <td>
+                            <form action="ver_categoria.php" method="post">
+                                <button type="submit" class="btn btn-outline-success" name="id" value="<?php echo $dato['id']; ?>">Actualizar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn btn-outline-danger" name="delete_id" value="<?php echo $dato['id']; ?>">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php
+                        $cont++; 
+                        } 
+                    ?>
                 </tbody>
             </table>
             <?php $categoria->eliminar(); ?>
