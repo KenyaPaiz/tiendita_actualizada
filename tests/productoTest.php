@@ -9,7 +9,7 @@
 
             $product->insertar("Refrigeradora",60,7);
 
-            $product->eliminar(4);
+            //$product->eliminar(4);
 
             $array = $product->consultar();
             foreach($array as $arr){

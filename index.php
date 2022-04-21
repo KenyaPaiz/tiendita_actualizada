@@ -13,42 +13,44 @@
 <body>
 <?php 
     require "clases/Administrador.php";
-    $admin = new Administrador();
+    require "clases/autenticar.php";
+    $tipoUsuario = new autenticar();
  ?>
- 
     <main>
-            <div class="form_container">
-                <form action="" class="formulario" method="POST">
-                    <img class="imagen" src="recursos/img/logo-carrito.png" alt="Logo TienditaShop" width = "60" height = "70">
+        <div class="form_container">
+            <form action="" class="formulario" method="POST">
+                <img class="imagen" src="recursos/img/logo-carrito.png" alt="Logo TienditaShop" width = "60" height = "70">
 
-                    <h1>Iniciar Sesión</h1>
-                    
-                    <div class="contenedor">
-                        <div class="input-contenedor">
-                            <i class="fa-solid fa-user icono" class="icon"></i>
-                            <input type="text" name="email" placeholder="Correo Electrónico">
-                        </div>
+                <h1>Iniciar Sesión</h1>
+                
+                <div class="contenedor">
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user icono" class="icon"></i>
+                        <input type="text" name="email" placeholder="Correo Electrónico">
                     </div>
+                </div>
 
-                    <div class="contenedor">
-                        <div class="input-contenedor">
-                            <i class="fa-solid fa-key icono" class="icon"></i>
-                            <input type="password" name="password" placeholder="Contraseña">
-                        </div>
+                <div class="contenedor">
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-key icono" class="icon"></i>
+                        <input type="password" name="password" placeholder="Contraseña">
                     </div>
+                </div>
+                
+                <input type="submit" name="ingresar" value="Ingresar" class="btn">
+                <a href="vistas/registrar_admin.php" class="registrar btn">
+                    Registrar
+                </a>
+                    <!-- <div class="parrafos">
+                            <p>Al registrarte, aceptas nuestras Políticas y Condiciones.</p>
+                            <p>¿Aún no tienes cuenta? <a class="link" href="registrarse.php">Regístrate</a></p>
+                        </div> -->
+                    <?php 
+                        $tipoUsuario->login(new Administrador);
+                     ?>
                     
-                    <input type="submit" name="ingresar" value="Ingresar" class="btn">
-                    <a href="vistas/registrar_admin.php" class="registrar btn">
-                        Registrar
-                    </a>
-                        <!-- <div class="parrafos">
-                             <p>Al registrarte, aceptas nuestras Políticas y Condiciones.</p>
-                             <p>¿Aún no tienes cuenta? <a class="link" href="registrarse.php">Regístrate</a></p>
-                            </div> -->
-                        <?php $admin->accederAdministrador(); ?>
-                     
-                </form>
-            </div>
+            </form>
+        </div>
     </main>
 
 </body>

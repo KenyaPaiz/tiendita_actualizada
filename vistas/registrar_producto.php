@@ -19,6 +19,7 @@
         <?php
             require('../clases/producto.php');
             $producto = new Producto();
+            
         ?>
         <form class="h1-contenedor" action="" method="POST">
             <h1>Registrar Producto</h1>
