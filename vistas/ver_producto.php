@@ -47,6 +47,9 @@
         <?php 
             require "../clases/producto.php";
             $producto = new Producto();
+            $datos = $producto->consultar();
+            $cont=1;
+                
         ?>
         <h1 class="titulo">Listado de productos</h1>
         <!-- <a href="registrar_producto.php">Registrar Producto</a><br> -->
@@ -60,33 +63,41 @@
         </form>
         <!--- Tabla de consultas -->
         <br>
-        <div class="tabla-contenedor">
-            <table id="tabla" class="table table-sm">
-                <thead>
-                    <th class="th">#</th>
-                    <th class="th">Nombre</th>
-                    <th class="th">Descripción</th>
-                    <th class="th">Precio</th>
-                    <th class="th">Cantidad</th>
-                    <th class="th">Proveedor</th>
-                    <th class="th">Marca</th>
-                    <th class="th">Categoria</th>
+        <table class="table table-sm">
+            <thead>
+                <th>#</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Proveedor</th>
+                    <th>Marca</th>
+                    <th>Categoría</th>
                     <th></th>
                     <th></th>
                 </thead>
-                <tbody>
-                    <?php
-                        if(isset($_POST['buscar'])){
-                            $producto->busqueda();
-                        }
-                        else{
-                            $producto->consultar();
-                        }
-                    ?>
-                </tbody>
-            </table>
+                    <tbody>
+                        <?php foreach($datos as $dato){ ?>
+                            <tr>
+                                <td> <?php echo $cont; ?></td>
+                                <td> <?php echo $dato['nombre']; ?></td>
+                                <td> <?php echo $dato['descripcion']; ?></td>
+                                <td> <?php echo $dato['precio']; ?></td>
+                                <td> <?php echo $dato['cantidad']; ?></td>
+                                <td> <?php echo $dato['proveedor']; ?></td>
+                                <td> <?php echo $dato['marca']; ?></td>
+                                <td> <?php echo $dato['categoria']; ?></td>
+                                <form action='actualizar_producto.php' method='POST'>
+                                    <td><button type='submit' id='btn-act' class='btn btn-dark' name='idproducto' value="<?php echo $dato['id']; ?>">Actualizar</button>
+                                </form>
+                                <form action='estado_producto.php' method='POST'>
+                                    <td><button type='submit' id='btn-act' class='btn btn-dark' name='idestado' value="<?php echo $dato['id']; ?>">Eliminar</button>
+                                </form>
+                            </tr>
+                                <?php $cont++;} ?>
+                    </tbody>
+        </table>
             <?php $producto->totalProductos(); ?>
-        </div>
     </div>
     </center>
 </body>

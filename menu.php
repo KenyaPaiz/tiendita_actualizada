@@ -45,7 +45,7 @@
                 <!--IMPUT REPORTE-->
                 <form action="clases/reporte.php" method="POST">
                     <div class="input-contenedor">
-                    <i class="fa-solid fa-basket-shopping" class="icon"></i>
+                    <i class="fa-solid fa-book-open" class="icon"></i>
                         <input type="submit" name="producto" value="Reporte" class="button">
                     </div>
                 </form>
@@ -53,3 +53,6 @@
     </main>
 </body>
 </html>
+
+
+

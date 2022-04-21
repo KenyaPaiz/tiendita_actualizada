@@ -15,18 +15,21 @@
         <?php 
             require('../clases/producto.php');
             $producto = new Producto(); 
-        ?>
+            ?>
         <h1>Actualizar Producto</h1>
         <div class="form-container">
             <form method="POST" class="formulario">
-                <?php $producto->obtenerId(); ?>
+                <?php $producto->obtenerId();
+                $datos = $producto->obtenerId();
+                $cont=1;
+                ?>
 
-                <div>
-                    <label for="categoria" >Categoria</label>
-                    <select name="categoria">
-                        <?php $producto->selectCategoria();?>
-                    </select>
-                </div>
+            <div>
+                <label for="categoria" >Categoria</label>
+                <select name="categoria">
+                    <?php $producto->selectCategoria();?>
+                </select>
+            </div>
 
             <div>
                     <label for="marca" >Marca</label>
@@ -41,15 +44,32 @@
                         <?php $producto->selectProveedor(); ?>
                     </select><br>
             </div>
-
-                <div>
-                    <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Producto">
-                </div>
+                    <input type='hidden' name='id' value="">
+                    <div>
+                    <label>Nombre:</label>
+                    <input type='text' name='nombre' value=""><br>
+                    </div>
+                    <div>
+                    <label>Descripcion:</label>
+                    <input type='text' name='descripcion' value=""><br>
+                    </div>
+                    <div>
+                    <label>Precio:</label>
+                     <input type='text' name='precio' value=""><br>
+                    </div>
+                    <div>
+                    <label>Cantidad:</label>
+                     <input type='number' name='cantidad' value=""><br>       
+                    </div>
+                    
             </form>
-        </div>
+            <div>
+                <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Producto">
+            </div>
+
+    </div>
         <?php $producto->actualizar(); ?>
     </div>
-
 </body>
 </html>
 
