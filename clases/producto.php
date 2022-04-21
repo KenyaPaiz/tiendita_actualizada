@@ -64,10 +64,10 @@
             }
         }
 
-        public function registrar($nombre){
+        public function registrar(){
             $this->conectar();
-            if(isset($_POST[$nombre], $_POST['descripcion'], $_POST['precio'], $_POST['categoria'], $_POST['marca'], $_POST['proveedor'], $_POST['existencias'])){
-                $this->nombre = $_POST[$nombre];
+            if(isset($_POST['nombre'], $_POST['descripcion'], $_POST['precio'], $_POST['categoria'], $_POST['marca'], $_POST['proveedor'], $_POST['existencias'])){
+                $this->nombre = $_POST['nombre'];
                 $this->descripcion = $_POST['descripcion'];
                 $this->precio = $_POST['precio'];
                 $this->idCategoria = $_POST['categoria'];
