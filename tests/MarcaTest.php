@@ -1,12 +1,15 @@
 <?php
     use PHPUnit\Framework\TestCase;
+    
+    require "clases/Marca.php";
 
     class MarcaTest extends TestCase{
         /** @test */
+        
         public function prueba(){
-            $num = 2;
-
-            $this->assertEquals(2, $num);
+            $marca = new Marca;
+            $marca->conectar();
+            $resultado = $marca->consultar();
         }
     }
 ?>
