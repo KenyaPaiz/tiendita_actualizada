@@ -12,6 +12,7 @@
         public $cantidad;
 
         //Obteniendo todas las marcas para el registro del producto
+        //Eliminar estas funciones y llamar funciones de marca, categoria, proveedor en las vista de producto
         public function selectMarcas(){
             $this->conectar();
             $query = "SELECT * FROM marca";
@@ -63,10 +64,10 @@
             }
         }
 
-        public function registrar(){
+        public function registrar($nombre){
             $this->conectar();
-            if(isset($_POST['nombre'], $_POST['descripcion'], $_POST['precio'], $_POST['categoria'], $_POST['marca'], $_POST['proveedor'], $_POST['existencias'])){
-                $this->nombre = $_POST['nombre'];
+            if(isset($_POST[$nombre], $_POST['descripcion'], $_POST['precio'], $_POST['categoria'], $_POST['marca'], $_POST['proveedor'], $_POST['existencias'])){
+                $this->nombre = $_POST[$nombre];
                 $this->descripcion = $_POST['descripcion'];
                 $this->precio = $_POST['precio'];
                 $this->idCategoria = $_POST['categoria'];

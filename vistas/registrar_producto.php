@@ -50,7 +50,7 @@
             <input type="number" class="subtitulos" name="existencias" required><br><br>
             <input type="submit" id="btn-registrar" class="btn btn-dark" name="registrar" value="Registrar Producto">
         </form>
-        <?php $producto->registrar(); ?>
+        <?php $producto->registrar("nombre"); ?>
     </div>
     </center>
 </body>

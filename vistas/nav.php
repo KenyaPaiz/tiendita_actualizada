@@ -27,5 +27,4 @@
     <div class="div-nav">
         <a class="nav" href="../index.php">Cerra Sesion</a>
     </div>
-
 </nav>
