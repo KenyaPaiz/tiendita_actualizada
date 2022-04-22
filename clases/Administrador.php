@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "loginInterfaz.php";
     require "conexion.php";
     class Administrador implements LoginInterface{
@@ -13,11 +14,12 @@
                 $this->email = $_POST['email'];
                 $this->password = $_POST['password'];
                 if(isset($_POST['ingresar'])){
-                    $query = "SELECT email, password FROM administrador WHERE email='$this->email' AND password='$this->password'";
+                    $query = "SELECT nombre, email, password FROM administrador WHERE email='$this->email' AND password='$this->password'";
                     $resultado = mysqli_query($conexion->con, $query);
-                    //mysqli_num_rows = cuenta las filas del select
                     $contador = mysqli_num_rows($resultado);
+                    $user = mysqli_fetch_assoc($resultado);
                     if($contador > 0){
+                        $_SESSION['usuario'] = $user['nombre'];
                         header("location:menu.php");
                     }else{
                         echo "<p class=\"error\">Correo o contraseña incorrecta</p>";

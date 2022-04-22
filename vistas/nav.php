@@ -1,5 +1,8 @@
-
+<?php session_start(); ?>
 <nav>
+    <div class="div-nav">
+        <a class="nav" href="#"><?php echo $_SESSION['usuario']; ?></a>
+    </div>
     <div class="div-nav">
         <a class="nav" href="../menu.php">Menu</a>
     </div>
