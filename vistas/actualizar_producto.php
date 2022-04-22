@@ -14,15 +14,17 @@
     <div class="container">
         <?php 
             require('../clases/producto.php');
-            $producto = new Producto(); 
+            $producto = new Producto();     
             ?>
+
+
         <h1>Actualizar Producto</h1>
         <div class="form-container">
             <form method="POST" class="formulario">
-                <?php $producto->obtenerId();
-                $datos = $producto->obtenerId();
-                $cont=1;
-                ?>
+            <?php $producto->obtenerId();
+            $datos = $producto->obtenerId();
+            ?>
+                
 
             <div>
                 <label for="categoria" >Categoria</label>
@@ -43,32 +45,39 @@
                     <select name="proveedor">
                         <?php $producto->selectProveedor(); ?>
                     </select><br>
+
+                    <?php foreach($datos as $dato) ?>
+
             </div>
-                    <input type='hidden' name='id' value="">
+                    <input type='hidden' name='id' value="<?php echo $dato['id'] ?>">
                     <div>
                     <label>Nombre:</label>
-                    <input type='text' name='nombre' value=""><br>
+                    <input type='text' name='nombre' value="<?php echo $dato['nombre']; ?>"><br>
                     </div>
                     <div>
                     <label>Descripcion:</label>
-                    <input type='text' name='descripcion' value=""><br>
+                    <input type='text' name='descripcion' value="<?php echo $dato['descripcion']; ?>"><br>
                     </div>
                     <div>
                     <label>Precio:</label>
-                     <input type='text' name='precio' value=""><br>
+                     <input type='text' name='precio' value="<?php echo $dato['precio']; ?>"><br>
                     </div>
                     <div>
                     <label>Cantidad:</label>
-                     <input type='number' name='cantidad' value=""><br>       
+                     <input type='number' name='cantidad' value="<?php echo $dato['cantidad']; ?>"><br>       
                     </div>
                     
             </form>
             <div>
+            <form action='ver_producto.php' method='POST'>
                 <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Producto">
+            </form>
             </div>
-
+        
     </div>
-        <?php $producto->actualizar(); ?>
+    <div>
+        <?php $producto->actualizar();
+        ?>
     </div>
 </body>
 </html>
