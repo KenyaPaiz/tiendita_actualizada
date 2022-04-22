@@ -46,38 +46,34 @@
                         <?php $producto->selectProveedor(); ?>
                     </select><br>
 
-                    <?php foreach($datos as $dato) ?>
+                    <?php foreach($datos as $dato){ ?>
 
             </div>
                     <input type='hidden' name='id' value="<?php echo $dato['id'] ?>">
                     <div>
                     <label>Nombre:</label>
-                    <input type='text' name='nombre' value="<?php echo $dato['nombre']; ?>"><br>
+                        <input type='text' name='nombre' value="<?php echo $dato['nombre']; ?>"><br>
                     </div>
                     <div>
                     <label>Descripcion:</label>
-                    <input type='text' name='descripcion' value="<?php echo $dato['descripcion']; ?>"><br>
+                        <input type='text' name='descripcion' value="<?php echo $dato['descripcion']; ?>"><br>
                     </div>
                     <div>
                     <label>Precio:</label>
-                     <input type='text' name='precio' value="<?php echo $dato['precio']; ?>"><br>
+                        <input type='text' name='precio' value="<?php echo $dato['precio']; ?>"><br>
                     </div>
                     <div>
                     <label>Cantidad:</label>
-                     <input type='number' name='cantidad' value="<?php echo $dato['cantidad']; ?>"><br>       
+                        <input type='number' name='cantidad' value="<?php echo $dato['cantidad']; ?>"><br>       
                     </div>
-                    
+                    <div>
+                        <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Producto">
+                    </div>
+                   <?php }?>
             </form>
-            <div>
-            <form action='ver_producto.php' method='POST'>
-                <input type="submit" name="actualizar" class="btn btn-dark" value="Actualizar Producto">
-            </form>
-            </div>
-        
     </div>
     <div>
-        <?php $producto->actualizar();
-        ?>
+        <?php $producto->actualizar();?>
     </div>
 </body>
 </html>
