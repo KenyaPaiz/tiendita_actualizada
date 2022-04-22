@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +14,7 @@
     <main>
         <!--IMPUT CATEGORÍA-->
        <div class=formulario>
+           <h1>¡Hola! <?php echo $_SESSION['usuario']; ?></h1>
             <form action="vistas/Categoria.php" method="POST" >
                     <img class="imagen" src="recursos/img/logo-carrito.png" alt="Logo TienditaShop" width = "60" height = "60">
                     <h1>¿Qué desea hacer?</h1>
