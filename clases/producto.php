@@ -12,7 +12,6 @@
         public $cantidad;
 
         //Obteniendo todas las marcas para el registro del producto
-        //Eliminar estas funciones y llamar funciones de marca, categoria, proveedor en las vista de producto
         public function selectMarcas(){
             $this->conectar();
             $query = "SELECT * FROM marca";
@@ -87,13 +86,21 @@
             }
         }
 
-        public function consultar(){
+        public function consultarFiltro(){
             $this->conectar();
-            //Ver todo los productos con estado activo
-            $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.cantidad, c.nombre AS categoria, m.nombre AS marca, pv.nombre AS proveedor FROM producto AS p INNER JOIN categoria AS c ON p.idcategoria=c.id INNER JOIN marca AS m ON p.idmarca=m.id INNER JOIN proveedor AS pv ON p.idproveedor=pv.id WHERE p.idestado=1 ORDER BY p.id ASC";
-            $resultado = mysqli_query($this->con, $query);
+            if(isset($_POST['busqueda'])){
+                if(isset($_POST['buscar'])){
+                    $buscar = $_POST['busqueda'];
+                    $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.cantidad, c.nombre AS categoria, m.nombre AS marca, pv.nombre AS proveedor FROM producto AS p INNER JOIN categoria AS c ON p.idcategoria=c.id INNER JOIN marca AS m ON p.idmarca=m.id INNER JOIN proveedor AS pv ON p.idproveedor=pv.id WHERE p.idestado=1 AND p.nombre LIKE '%$buscar%' ORDER BY p.id ASC";
+                    $resultado = mysqli_query($this->con, $query);
+                }
+            }
+            else{
+                $query = "SELECT p.id, p.nombre, p.descripcion, p.precio, p.cantidad, c.nombre AS categoria, m.nombre AS marca, pv.nombre AS proveedor FROM producto AS p INNER JOIN categoria AS c ON p.idcategoria=c.id INNER JOIN marca AS m ON p.idmarca=m.id INNER JOIN proveedor AS pv ON p.idproveedor=pv.id WHERE p.idestado=1 ORDER BY p.id ASC";
+                $resultado = mysqli_query($this->con, $query);
+            }
+
             return $resultado;
-            
         }
 
         //Obteniendo el Id del producto seleccionado de la tabla
@@ -103,10 +110,10 @@
                 $this->id = $_POST['idproducto'];
                 $query = "SELECT * FROM producto WHERE id=$this->id";
                 $resultado = mysqli_query($this->con, $query);
+
                 return $resultado;
-                }
             }
-        
+        }
 
         public function actualizar(){
             $this->conectar();
@@ -177,8 +184,23 @@
             }
         }
 
-        //Busqueda de filtro por nombre del producto
-        
+        //Productos Inactivos
+        public function consultarProductosInactivos(){
+            $this->conectar();
+            if(isset($_POST['busqueda'])){
+                if(isset($_POST['buscar'])){
+                    $buscar = $_POST['busqueda'];
+                    $query = "SELECT p.id, p.nombre, p.descripcion, p.precio,c.nombre AS categoria, m.nombre AS marca, pv.nombre AS proveedor FROM producto AS p INNER JOIN categoria AS c ON p.idcategoria=c.id INNER JOIN marca AS m ON p.idmarca=m.id INNER JOIN proveedor AS pv ON p.idproveedor=pv.id WHERE p.idestado=2 AND p.nombre LIKE '%$buscar%' ORDER BY p.id ASC";
+                    $resultado = mysqli_query($this->con, $query);
+                }
+            }
+            else{
+                $query = "SELECT p.id, p.nombre, p.descripcion, p.precio,c.nombre AS categoria, m.nombre AS marca, pv.nombre AS proveedor FROM producto AS p INNER JOIN categoria AS c ON p.idcategoria=c.id INNER JOIN marca AS m ON p.idmarca=m.id INNER JOIN proveedor AS pv ON p.idproveedor=pv.id WHERE p.idestado=2 ORDER BY p.id ASC";
+                $resultado = mysqli_query($this->con, $query);
+            }
+
+            return $resultado;
+        }
     }
 ?>
 

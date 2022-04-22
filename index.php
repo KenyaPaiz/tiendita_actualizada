@@ -41,17 +41,11 @@
                 <a href="vistas/registrar_admin.php" class="registrar btn">
                     Registrar
                 </a>
-                    <!-- <div class="parrafos">
-                            <p>Al registrarte, aceptas nuestras Políticas y Condiciones.</p>
-                            <p>¿Aún no tienes cuenta? <a class="link" href="registrarse.php">Regístrate</a></p>
-                        </div> -->
-                    <?php 
-                        $tipoUsuario->login(new Administrador);
-                     ?>
-                    
+                <?php 
+                    $tipoUsuario->login(new Administrador);
+                ?> 
             </form>
         </div>
     </main>
-
 </body>
 </html>

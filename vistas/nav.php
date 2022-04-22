@@ -1,6 +1,5 @@
 
 <nav>
-
     <div class="div-nav">
         <a class="nav" href="../menu.php">Menu</a>
     </div>
@@ -15,6 +14,9 @@
 
     <div class="div-nav">
         <a class="nav" href="ver_producto.php">Producto</a>
+    </div>
+    <div class="div-nav">
+        <a class="nav" href="productosInactivos.php">Productos Inactivos</a>
     </div>
 
     <div class="div-nav">

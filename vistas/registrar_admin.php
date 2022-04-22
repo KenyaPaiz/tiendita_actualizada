@@ -13,7 +13,6 @@
             $registrar_admin = new Administrador();
         ?>
         <form action="" method="post">
-
             <label for="">Nombre</label>
             <input type="text" name="nombre" id="">
 

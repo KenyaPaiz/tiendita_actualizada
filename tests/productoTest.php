@@ -7,9 +7,11 @@
         public function test(){
             $product = new pruebaProducto;
 
-            $product->insertar("Refrigeradora",60,7);
+            $product->insertar("Aceite",2.50,9);
 
-            //$product->eliminar(4);
+            $product->actualizar(9,"Refri Mabe");
+
+            //$product->eliminar(10);
 
             $array = $product->consultar();
             foreach($array as $arr){

@@ -19,6 +19,14 @@
             return $result;
         }
 
+        public function actualizar($id, $nombre){
+            $this->conectar();
+            $actualizar = "UPDATE testproducto SET nombre='$nombre' WHERE id=$id";
+            $result = mysqli_query($this->con,$actualizar);
+
+            return $result;
+        }
+
         public function eliminar($id){
             $this->conectar();
             $eliminar = "DELETE FROM testproducto WHERE id=$id";

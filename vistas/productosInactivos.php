@@ -20,11 +20,11 @@
         <?php 
             require "../clases/producto.php";
             $producto = new Producto();
-            $datos = $producto->consultarFiltro();
+            $datos = $producto->consultarProductosInactivos();
             $cont=1;
                 
         ?>
-        <h1 class="titulo">Listado de productos activos</h1>
+        <h1 class="titulo">Listado de productos inactivos</h1>
         <form action="" method="post" class="formulario">
             <div class="busqueda">
                 <b>Busqueda: </b>
@@ -41,11 +41,9 @@
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Precio</th>
-                <th>Cantidad</th>
                 <th>Proveedor</th>
                 <th>Marca</th>
                 <th>Categoría</th>
-                <th></th>
                 <th></th>
             </thead>
             <tbody>
@@ -55,21 +53,16 @@
                         <td><?php echo $dato['nombre']; ?></td>
                         <td><?php echo $dato['descripcion']; ?></td>
                         <td><?php echo $dato['precio']; ?></td>
-                        <td><?php echo $dato['cantidad']; ?></td>
                         <td><?php echo $dato['proveedor']; ?></td>
                         <td><?php echo $dato['marca']; ?></td>
                         <td><?php echo $dato['categoria']; ?></td>
-                        <form action='actualizar_producto.php' method='POST'>
-                            <td><button type='submit' id='btn-act' class='btn btn-dark' name='idproducto' value="<?php echo $dato['id']; ?>">Actualizar</button>
-                        </form>
                         <form action='estado_producto.php' method='POST'>
-                            <td><button type='submit' id='btn-act' class='btn btn-dark' name='idestado' value="<?php echo $dato['id']; ?>">Eliminar</button>
+                            <td><button type='submit' id='btn-act' class='btn btn-dark' name='idestado' value="<?php echo $dato['id']; ?>">Activarlo</button>
                         </form>
                     </tr>
                 <?php $cont++;} ?>
             </tbody>
         </table>
-        <?php $producto->totalProductos(); ?>
     </div>
     </center>
 </body>
